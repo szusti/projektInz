@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="preprocessTab" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.PreprocessController">
+   <children>
+      <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0">
+        <buttons>
+            <Button fx:id="buttonSaveFile" disable="true" mnemonicParsing="false" onAction="#saveFile" text="Save file" textAlignment="CENTER" />
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <Button fx:id="buttonEdit" alignment="CENTER" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#editFile" text="Edit" />
+            <Button fx:id="buttonSeeMissing" disable="true" mnemonicParsing="false" onAction="#seeMissingInData" text="Missing values" textAlignment="CENTER" />
+            <Button fx:id="buttonSeeFile" disable="true" minWidth="0.0" mnemonicParsing="false" onAction="#showFile" prefHeight="22.0" text="See file" textAlignment="CENTER" />
+            <Label fx:id="labelFileNotLoaded" prefHeight="19.0" text="file not loaded" />
+          <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadFile" text="Load File" textAlignment="CENTER" />
+        </buttons>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </ButtonBar>
+      <Separator prefWidth="200.0" />
+      <HBox alignment="CENTER" prefHeight="552.0" prefWidth="820.0">
+         <children>
+            <VBox prefHeight="552.0" prefWidth="342.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <TextArea fx:id="textAreaSummDataSumm" editable="false" prefHeight="287.0" prefWidth="291.0" wrapText="true" />
+                  <HBox prefHeight="20.0" prefWidth="291.0">
+                     <children>
+                        <Label prefHeight="14.0" prefWidth="202.0" text="List of attributes (choose for more info)">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="5.0" top="3.0" />
+                           </padding>
+                        </Label>
+                        <Pane prefHeight="20.0" prefWidth="40.0" />
+                        <Button mnemonicParsing="false" onAction="#attributesSummary" prefHeight="8.0" prefWidth="61.0" text="summary">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <ListView fx:id="listViewAttributes" prefHeight="376.0" prefWidth="291.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ListView>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="557.0" prefWidth="40.0" HBox.hgrow="ALWAYS">
+               <padding>
+                  <Insets left="7.0" />
+               </padding></Separator>
+            <TextArea fx:id="textAreaSummDataSpecifics" editable="false" prefHeight="552.0" prefWidth="563.0" wrapText="true" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </TextArea>
+         </children>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

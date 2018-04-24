@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="klasyfikator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/klasyfikator_jar</output-path>
+    <root id="archive" name="klasyfikator.jar">
+      <element id="module-output" name="klasyfikator" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/lib/weka.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="680.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="69.0">
+         <children>
+            <AnchorPane prefHeight="20.0">
+               <children>
+                  <Label alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" text="Automatic handling for all objects" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <Separator prefWidth="200.0" />
+          <AnchorPane>
+               <children>
+                  <ButtonBar buttonMinWidth="50.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <buttons>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#fillAutomatically" text="fill" textAlignment="CENTER" />
+                        <ComboBox fx:id="fillAutomaticallyCB" prefWidth="150.0" />
+                        <Label text="Fill" />
+                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#filterMissingValues" prefHeight="22.0" text="filter" textAlignment="CENTER">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                        <Label text="Filter all objects" />
+                    </buttons>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </ButtonBar>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Separator prefHeight="13.0" prefWidth="600.0" />
+      <Label alignment="CENTER" text="List of objects with missing values" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets left="10.0" />
+         </VBox.margin></Label>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="331.0" prefWidth="720.0">
+         <children>
+            <ListView fx:id="listViewMissingObjects" onKeyPressed="#deleteObjectByKey" prefHeight="200.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <HBox prefHeight="14.0" prefWidth="720.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label prefHeight="36.0" prefWidth="65.0" text="Delete object">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Label>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#deleteObject" prefHeight="20.0" prefWidth="48.0" text="Delete" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets left="20.0" top="7.0" />
+               </HBox.margin>
+               <tooltip>
+                  <Tooltip text="You can press button &quot;delete&quot; on keyboard instead on clicking this button" />
+               </tooltip></Button>
+            <Label prefHeight="41.0" prefWidth="145.0" text="Fill object randomly">
+               <HBox.margin>
+                  <Insets left="300.0" />
+               </HBox.margin>
+            </Label>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#fillOneObject" text="Fill object">
+               <HBox.margin>
+                  <Insets left="20.0" top="7.0" />
+               </HBox.margin>
+               <tooltip>
+                  <Tooltip text="Fill missing attributes by values with highest amount on occurences (average for numeric)" />
+               </tooltip>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets left="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="9.0" prefWidth="720.0">
+         <children>
+            <AnchorPane prefHeight="14.0" prefWidth="87.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" prefHeight="14.0" prefWidth="283.0" text="Missing Attributes" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="14.0" prefWidth="241.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" text="Attribute info" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox prefHeight="159.0" prefWidth="600.0">
+         <children>
+            <ListView fx:id="listViewAttributes" onMouseClicked="#setTextAreaAttribInfo" prefHeight="100.0" prefWidth="26.0" HBox.hgrow="ALWAYS" />
+            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <TextArea fx:id="textAreaAttribInfo" prefHeight="100.0" prefWidth="269.0" VBox.vgrow="ALWAYS" />
+                  <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                    <buttons>
+                        <ComboBox fx:id="comboBoxValue" prefWidth="150.0" visibleRowCount="5" />
+                      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#setValue" text="Set Value" textAlignment="CENTER" />
+                    </buttons>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ButtonBar>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Separator prefWidth="200.0" />
+      <HBox prefHeight="0.0" prefWidth="720.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#confirm" prefHeight="22.0" prefWidth="100.0" text="Confirm" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Button>
+            <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#cancel" prefWidth="100.0" text="Cancel" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Button>
+         </children>
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" top="2.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>
